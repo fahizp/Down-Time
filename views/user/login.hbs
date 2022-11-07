@@ -1,0 +1,171 @@
+
+<!-- partial:index.partial.html -->
+
+<div style="position: relative; top: 90px;"> 
+    {{#if loginErr}}
+         <h3 class="error pt-5 pl-2" style="color: red; text-align: center;">Invalid username or password</h3>
+         {{/if}}
+         </div>
+         
+<div class="login hide-login">
+    
+         <form class="login-container hide-form" action="/login" method="POST" autocomplete="off" >
+             
+
+            <img src="https://cdn-icons-png.flaticon.com/512/924/924915.png" alt="" style="height: 120px; width: 120px;"  />
+           
+            <div class="input-container hide-section">
+               <p><input type="email" placeholder="Email" name="email" /></p>
+               <p><input type="password" placeholder="Password" name="password" /></p>
+               <p><input type="submit" value="Log in" class="log m"/></p>
+            </div>
+         </form>
+      </div>
+      
+<!-- partial -->
+  <style>
+    body {
+
+    font-family: "Open Sans", sans-serif;
+}
+
+form {
+    text-align: center;
+}
+
+.login {
+    width: 400px;
+    font-size: 16px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    box-shadow: 0 5px 6px #00000036;
+    transform: translate(-50%, -50%);
+    border-radius: 22px;
+    overflow: hidden;
+    transition: 1s;
+    height: 410px;
+}
+
+/* Reset top and bottom margins from certain elements */
+.login-header,
+.login p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.input-container {
+    opacity: 1;
+    transition: 1s;
+}
+
+img {
+    width: 80px;
+    border-radius: 50%;
+    padding: 12px;
+    box-shadow: 0 2px 6px #001a348a;
+}
+
+.login-header {
+    background: #000000;
+    padding: 20px;
+    font-size: 1.4em;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    padding-top: 32px;
+}
+
+.login-container {
+    background: #000000;
+    padding: 40px 30px;
+    transition: 1s;
+}
+
+/* Every row inside .login-container is defined with p tags */
+.login p {
+    padding: 12px;
+}
+
+.login input {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    padding: 16px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 0.95em;
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+    background: #fff;
+    border-color: #bbb;
+    color: rgb(170, 170, 170);
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #c0c0c03b;
+    padding-left: 0;
+    padding-bottom: 10px;
+}
+
+/* Text fields' focus effect */
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+    border-color: #888;
+}
+
+.login input[type="submit"] {
+    background: rgb(17, 79, 141);
+    width: 200px;
+    margin: auto;
+    border-bottom: 22px;
+    border: none;
+    color: white;
+    overflow: hidden;
+    border-radius: 22px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+/* Animation */
+
+.hide-section {
+    opacity: 0;
+}
+
+.hide-form {
+    padding: 0;
+    padding-top: 27px;
+}
+
+.hide-login {
+    width: 165px;
+    height: 167px;
+    border-radius: 50%;
+}
+  </style>
+  <script>
+    const section = document.querySelector(".hide-section");
+            const formContainer = document.querySelector(".login-container");
+            const loginContainer = document.querySelector(".login");
+            const profile = document.querySelector("img");
+
+
+            profile.onclick = () => {
+               requestAnimationFrame(() => {
+                  loginContainer.classList.remove("hide-login");
+                  formContainer.classList.remove("hide-form");
+
+                  setTimeout(() => {
+                     section.classList.remove("hide-section");
+                  }, 1000);
+               });
+            };
+  </script>
+
+</body>
+</html>
